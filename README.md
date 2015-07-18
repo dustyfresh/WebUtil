@@ -1,4 +1,4 @@
-HTTP-Linux
+WebUtil
 ==========
 
 Perform basic HTTP requests to make your server do things. You can use utilities from your server in your web browser!
