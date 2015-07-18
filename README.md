@@ -23,6 +23,7 @@ $ ln -s /var/www/html/.config/default /etc/nginx/sites-enabled/default && /etc/i
 
 ## Methods
 
+```
 http://endpoint.tld/curl/{host} - curl a host
 http://endpoint.tld/dig/{domain} - run dig on a domain name
 http://endpoint.tld/ping/{host} - perform a ping from the server to a host of your choosing
@@ -45,3 +46,4 @@ http://endpoint.tld/ifconfig - displays ifconfig information
 http://endpoint.tld/df - shows disk layout
 http://endpoint.tld/last - list of users and their previous login times and history
 http://endpoint.tld/w - display current logged-in users
+```
