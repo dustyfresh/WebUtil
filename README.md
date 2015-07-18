@@ -6,9 +6,12 @@ Perform basic HTTP requests to make your server do things. You can use utilities
 This is good if you want to write custom calls to HTTP for your system. I recommend protecting this with HTTP authentication.
 
 ## Installation
--[ ] Ensure you have nginx installed with PHP functioning
--[ ] speedtest-cli installed
--[ ] command for the necessary call you wish to use has to be installed
+* Ensure you have nginx installed with PHP functioning
+
+*  speedtest-cli installed
+
+*  command for the necessary call you wish to use has to be installed
+
 ```
 $ git clone https://github.com/dustyfresh/HTTP-Linux.git; cd HTTP-Linnux && mv -v /etc/nginx/sites-enabled/default ~/default.bak
 $ mv -v ./* /var/www/html/
