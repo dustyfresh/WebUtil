@@ -1,5 +1,8 @@
 <?php
 set_time_limit(0);
+if(empty($_SERVER['HTTPS'])){
+	print "<h2><mark style='background-color: #FF8080;'><strong>You are not using SSL</strong></mark></h2>";
+}
 
 if(strpos(strtolower($_SERVER['HTTP_USER_AGENT']), "bot")){
 	header("HTTP/1.0 404 Not Found");
