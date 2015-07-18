@@ -50,6 +50,6 @@ https://endpoint.tld/ifconfig - displays ifconfig information
 https://endpoint.tld/df - shows disk layout
 https://endpoint.tld/last - list of users and their previous login times and history
 https://endpoint.tld/w - display current logged-in users
-https://endpoint.tld/etc/init.d/{service_name}/{service_action}
+https://endpoint.tld/etc/init.d/{service_name}/{service_action} - manage services using init scripts
 https://endpoint.tld/uname - prints uname output
 ```
