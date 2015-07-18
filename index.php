@@ -18,6 +18,13 @@ $app->notFound(function () use ($app) {
 	print "404";
 });
 
+$app->get('/etc/init.d/:service_name/:service_action', function ($service_name, $service_action) {
+        $app = \Slim\Slim::getInstance();
+        $data = shell_exec("sudo /etc/init.d/".escapeshellarg($service_name)." ".escapeshellarg($service_action));
+        $app->etag(md5($data));
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
+});
+
 $app->get('/curl/:curlhost', function ($curlhost) {
         $app = \Slim\Slim::getInstance();
         $data = shell_exec("curl -A 'WebUtil' -Iv ".escapeshellarg($curlhost));
@@ -56,6 +63,13 @@ $app->get('/mtr/:mtrhost', function ($mtrhost) {
 $app->get('/speedtest', function () {
         $app = \Slim\Slim::getInstance();
         $data = shell_exec("speedtest");
+        $app->etag(md5($data));
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
+});
+
+$app->get('/var/log/syslog', function () {
+        $app = \Slim\Slim::getInstance();
+        $data = shell_exec("cat /var/log/syslog");
         $app->etag(md5($data));
         print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
