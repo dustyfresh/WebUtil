@@ -23,7 +23,7 @@ $ ln -s /var/www/html/.config/default /etc/nginx/sites-enabled/default && /etc/i
 ```
 
 ## Demo
-![alt tag](http://i.imgur.com/UMAsxMQ.gif)
+![alt tag](http://i.imgur.com/5yMRddN.gif)
 
 ## Methods
 
