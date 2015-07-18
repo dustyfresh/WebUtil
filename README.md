@@ -33,7 +33,7 @@ http://endpoint.tld/dig/{domain} - run dig on a domain name
 http://endpoint.tld/ping/{host} - perform a ping from the server to a host of your choosing
 http://endpoint.tld/whois/{domain or IP} - whois command
 http://endpoint.tld/mtr/{host} - check the route with MTR (like traceroute but prettier)
-http://endpoint.tld/speedtest - run a speed-test check on 
+http://endpoint.tld/speedtest - run a speed-test check from the server running WebUtil
 http://endpoint.tld/etc/resolv.conf - returns the contents of /etc/resolv.conf
 http://endpoint.tld/etc/hosts - returns the contents of /etc/hosts
 http://endpoint.tld/proc/cpuinfo - returns the contents of /proc/cpuinfo
