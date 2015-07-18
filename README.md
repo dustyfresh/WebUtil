@@ -7,7 +7,7 @@ This is good if you want to write custom calls to HTTP for your system. I recomm
 
 ## Security
 Basic measures have been taken within the code to save you some security headaches against things like XSS and invalid filtering on command arguments. 
-However, this is an experimental project and should not be used in production environments for security concerns. At the very least add HTTP Auth.
+However, this is an experimental project and should not be used in production environments for security concerns. At the very least add HTTP Auth and SSL so this sensitive data is encrypted in-transit.
 
 ## Installation
 * Ensure you have nginx installed with PHP functioning
