@@ -20,7 +20,7 @@ $app->notFound(function () use ($app) {
 
 $app->get('/curl/:curlhost', function ($curlhost) {
         $app = \Slim\Slim::getInstance();
-        $data = shell_exec("curl -Iv ".escapeshellarg($curlhost));
+        $data = shell_exec("curl -A 'WebUtil' -Iv ".escapeshellarg($curlhost));
 	$app->etag(md5($data));
         print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
