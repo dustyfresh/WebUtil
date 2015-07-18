@@ -17,156 +17,156 @@ $app->notFound(function () use ($app) {
 
 $app->get('/curl/:curlhost', function ($curlhost) {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("curl -Iv ".escapeshellarg(htmlentities($curlhost))) . "</pre>";
+        $data = shell_exec("curl -Iv ".escapeshellarg($curlhost));
 	$app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/dig/:dighost', function ($dighost) {
 	$app = \Slim\Slim::getInstance();
-	$data = "<pre>" . shell_exec("dig any ".escapeshellarg($dighost)) . "</pre>";
+	$data = shell_exec("dig any ".escapeshellarg($dighost));
 	$app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/ping/:pinghost', function ($pinghost) {
 	$app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("ping -c4  ".escapeshellarg($pinghost)) . "</pre>";
+        $data = shell_exec("ping -c4  ".escapeshellarg($pinghost));
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/whois/:whoishost', function ($whoishost) {
 	$app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("whois  ".escapeshellarg($whoishost)) . "</pre>";
+        $data = shell_exec("whois  ".escapeshellarg($whoishost));
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/mtr/:mtrhost', function ($mtrhost) {
 	$app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("mtr --report -c 30  ".escapeshellarg($mtrhost)) . "</pre>";
+        $data = shell_exec("mtr --report -c 30  ".escapeshellarg($mtrhost));
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/speedtest', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("speedtest") . "</pre>";
+        $data = shell_exec("speedtest");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/etc/resolv.conf', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("cat /etc/resolv.conf") . "</pre>";
+        $data = shell_exec("cat /etc/resolv.conf");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/etc/hosts', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("cat /etc/hosts") . "</pre>";
+        $data = shell_exec("cat /etc/hosts");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/proc/cpuinfo', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("cat /proc/cpuinfo") . "</pre>";
+        $data = shell_exec("cat /proc/cpuinfo");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/proc/meminfo', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("cat /proc/cpuinfo") . "</pre>";
+        $data = shell_exec("cat /proc/cpuinfo");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/proc/modules', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("cat /proc/modules") . "</pre>";
+        $data = shell_exec("cat /proc/modules");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/vmstat', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("vmstat -Sm") . "</pre>";
+        $data = shell_exec("vmstat -Sm");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/top', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("top -n1 -b") . "</pre>";
+        $data = shell_exec("top -n1 -b");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/ps', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("ps faux") . "</pre>";
+        $data = shell_exec("ps faux");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/uptime', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("uptime") . "</pre>";
+        $data = shell_exec("uptime");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/lsof', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("lsof") . "</pre>";
+        $data = shell_exec("lsof");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/dmesg', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("dmesg") . "</pre>";
+        $data = shell_exec("dmesg");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/netstat', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("netstat -natp") . "</pre>";
+        $data = shell_exec("netstat -natp");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/ifconfig', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("ifconfig") . "</pre>";
+        $data = shell_exec("ifconfig");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/df', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("df -hT") . "</pre>";
+        $data = shell_exec("df -hT");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/last', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>" . shell_exec("last") . "</pre>";
+        $data = shell_exec("last");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->get('/w', function () {
         $app = \Slim\Slim::getInstance();
-        $data = "<pre>>" . shell_exec("w") . "</pre>";
+        $data = shell_exec("w");
         $app->etag(md5($data));
-	print $data;
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
 $app->run();
