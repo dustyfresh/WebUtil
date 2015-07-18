@@ -186,6 +186,13 @@ $app->get('/w', function () {
         print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
+$app->get('/uname', function () {
+        $app = \Slim\Slim::getInstance();
+        $data = shell_exec("uname -a");
+        $app->etag(md5($data));
+        print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
+});
+
 $app->run();
 
 ?>
