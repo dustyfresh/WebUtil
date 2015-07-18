@@ -32,9 +32,9 @@ $app->get('/curl/:curlhost', function ($curlhost) {
         print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });
 
-$app->get('/dig/:dighost', function ($dighost) {
+$app->get('/host/:host', function ($host) {
 	$app = \Slim\Slim::getInstance();
-	$data = shell_exec("dig any ".escapeshellarg($dighost));
+	$data = shell_exec("host ".escapeshellarg($host));
 	$app->etag(md5($data));
         print "<pre>" . filter_var($data, FILTER_SANITIZE_STRING) . "</pre>";
 });

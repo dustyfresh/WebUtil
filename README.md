@@ -29,7 +29,7 @@ $ ln -s /var/www/html/.config/default /etc/nginx/sites-enabled/default && /etc/i
 
 ```
 https://endpoint.tld/curl/{host} - curl a host
-https://endpoint.tld/dig/{domain} - run dig on a domain name
+https://endpoint.tld/host/{domain} - run host on a domain name
 https://endpoint.tld/ping/{host} - perform a ping from the server to a host of your choosing
 https://endpoint.tld/whois/{domain or IP} - whois command
 https://endpoint.tld/mtr/{host} - check the route with MTR (like traceroute but prettier)
